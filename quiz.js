@@ -62,7 +62,13 @@ function handleAnswer(answer) {
     moveToNextQuestion();
 }
 
-
+// Function to move to the next question
+function moveToNextQuestion() {
+    currentQuestionIndex++;
+    if (currentQuestionIndex < quizQuestions.length) {
+        askQuestion();
+    }
+}
 
 // Function to handle the global quiz timer
 function startQuiz() {
@@ -72,7 +78,6 @@ function startQuiz() {
         totalQuizTime--;
         if (totalQuizTime <= 0) {
             console.log('\nTime\'s up for the quiz!');
-            endQuiz();
         }
     }, 1000);
 
