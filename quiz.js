@@ -64,5 +64,20 @@ function handleAnswer(answer) {
 
 
 
+// Function to handle the global quiz timer
+function startQuiz() {
+    console.log('Quiz starting...\n');
+    
+    globalTimer = setInterval(() => {
+        totalQuizTime--;
+        if (totalQuizTime <= 0) {
+            console.log('\nTime\'s up for the quiz!');
+            endQuiz();
+        }
+    }, 1000);
+
+    askQuestion();
+}
+
 // Start the quiz
 startQuiz();
