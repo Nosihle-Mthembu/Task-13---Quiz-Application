@@ -20,6 +20,33 @@ const quizQuestions = [
     { question: 'What is the square root of 144?', options: ['a) 10', 'b) 11', 'c) 12', 'd) 13'], answer: 'c' },
 ];
 
+let currentQuestionIndex = 0;
+let score = 0;
+let totalQuizTime = 100; // Total quiz duration (seconds)
+let questionTime = 10; // Time for each question (seconds)
+let globalTimer, questionTimer;
+
+// Helper function to display the next question
+function askQuestion() {
+
+    const { question, options } = quizQuestions[currentQuestionIndex];
+    console.log(`\nQuestion ${currentQuestionIndex + 1}: ${question}`);
+    options.forEach(option => console.log(option));
+
+    questionTime = 10;
+    questionTimer = setInterval(() => {
+        questionTime--;
+        process.stdout.write(`\rTime remaining: ${questionTime} seconds`);
+        if (questionTime <= 0) {
+            clearInterval(questionTimer);
+            console.log('\nTime\'s up for this question!');
+            moveToNextQuestion(); // Proceed to the next question
+        }
+    }, 1000);
+
+    rl.question('\nYour answer: ', handleAnswer);
+}
+
 
 
 // Start the quiz
