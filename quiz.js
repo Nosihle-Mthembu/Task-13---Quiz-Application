@@ -6,6 +6,20 @@ const rl = readline.createInterface({
     output: process.stdout,
 });
 
+// Quiz data: 10 questions with 4 possible answers each
+const quizQuestions = [
+    { question: 'What is the capital of France?', options: ['a) Paris', 'b) London', 'c) Berlin', 'd) Madrid'], answer: 'a' },
+    { question: 'Which planet is known as the Red Planet?', options: ['a) Earth', 'b) Mars', 'c) Jupiter', 'd) Venus'], answer: 'b' },
+    { question: 'What is the largest ocean?', options: ['a) Atlantic', 'b) Indian', 'c) Arctic', 'd) Pacific'], answer: 'd' },
+    { question: 'Who wrote "Hamlet"?', options: ['a) Charles Dickens', 'b) Mark Twain', 'c) William Shakespeare', 'd) J.K. Rowling'], answer: 'c' },
+    { question: 'Which element has the chemical symbol "O"?', options: ['a) Oxygen', 'b) Gold', 'c) Silver', 'd) Iron'], answer: 'a' },
+    { question: 'What is the hardest natural substance?', options: ['a) Gold', 'b) Iron', 'c) Diamond', 'd) Platinum'], answer: 'c' },
+    { question: 'Which country hosted the 2016 Summer Olympics?', options: ['a) China', 'b) Brazil', 'c) Russia', 'd) UK'], answer: 'b' },
+    { question: 'What is the largest mammal?', options: ['a) Elephant', 'b) Blue Whale', 'c) Giraffe', 'd) Rhino'], answer: 'b' },
+    { question: 'How many continents are there?', options: ['a) 5', 'b) 6', 'c) 7', 'd) 8'], answer: 'c' },
+    { question: 'What is the square root of 144?', options: ['a) 10', 'b) 11', 'c) 12', 'd) 13'], answer: 'c' },
+];
+
 
 
 // Start the quiz
