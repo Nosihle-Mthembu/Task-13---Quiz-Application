@@ -47,6 +47,21 @@ function askQuestion() {
     rl.question('\nYour answer: ', handleAnswer);
 }
 
+// Function to handle user's answer input
+function handleAnswer(answer) {
+    clearInterval(questionTimer);
+    const correctAnswer = quizQuestions[currentQuestionIndex].answer.toLowerCase();
+
+    if (answer.toLowerCase() === correctAnswer) {
+        score++;
+        console.log('Correct!\n');
+    } else {
+        console.log(`Wrong! The correct answer was: ${correctAnswer.toUpperCase()}\n`);
+    }
+    
+    moveToNextQuestion();
+}
+
 
 
 // Start the quiz
