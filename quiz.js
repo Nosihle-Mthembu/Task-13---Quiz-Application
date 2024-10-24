@@ -28,6 +28,10 @@ let globalTimer, questionTimer;
 
 // Helper function to display the next question
 function askQuestion() {
+    if (currentQuestionIndex >= quizQuestions.length) {
+        endQuiz();
+        return;
+    }
 
     const { question, options } = quizQuestions[currentQuestionIndex];
     console.log(`\nQuestion ${currentQuestionIndex + 1}: ${question}`);
@@ -67,7 +71,17 @@ function moveToNextQuestion() {
     currentQuestionIndex++;
     if (currentQuestionIndex < quizQuestions.length) {
         askQuestion();
+    } else {
+        endQuiz();
     }
+}
+
+// Function to end the quiz and show the final score
+function endQuiz() {
+    clearInterval(globalTimer);
+    clearInterval(questionTimer);
+    console.log(`\nQuiz over! Your final score is: ${score}/${quizQuestions.length}`);
+    rl.close();
 }
 
 // Function to handle the global quiz timer
@@ -78,6 +92,7 @@ function startQuiz() {
         totalQuizTime--;
         if (totalQuizTime <= 0) {
             console.log('\nTime\'s up for the quiz!');
+            endQuiz();
         }
     }, 1000);
 
@@ -86,3 +101,4 @@ function startQuiz() {
 
 // Start the quiz
 startQuiz();
+ 
